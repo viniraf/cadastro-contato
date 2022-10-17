@@ -28,6 +28,11 @@ body {
     margin: 15px;
 }
 
+/*Validação dos campos tela criação de contato*/
+.field-validation-error {
+    color: #e01d1d;
+}
+
 /* Hide/rearrange for smaller screens */
 @media screen and (max-width: 767px) {
     /* Hide captions */
@@ -35,3 +40,5 @@ body {
         display: none;
     }
 }
+
+
