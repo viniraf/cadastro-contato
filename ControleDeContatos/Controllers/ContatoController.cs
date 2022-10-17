@@ -44,9 +44,25 @@ namespace ControleDeContatos.Controllers
 
         public IActionResult Apagar(int id) {
 
-            _contatoRepositorio.Apagar(id);
+            try {
 
-            return RedirectToAction("Index");
+               bool apagado = _contatoRepositorio.Apagar(id);
+
+                if (apagado) {
+                    TempData["MensagemSucesso"] = "Contato apagado com sucesso";
+                } 
+                else {
+                    TempData["MensagemErro"] = "Não foi possivel apagar seu contato apagado com sucesso";
+                }
+
+                return RedirectToAction("Index");
+
+            }
+            catch (Exception erro) {
+
+                TempData["MensagemErro"] = $"Erro! Não foi possivel cadastrar seu contato. Detalhe do erro: {erro.Message} ";
+                return RedirectToAction("Index");
+            }
         }
 
         [HttpPost]
