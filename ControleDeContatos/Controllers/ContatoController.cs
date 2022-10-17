@@ -52,13 +52,20 @@ namespace ControleDeContatos.Controllers
         [HttpPost]
         public IActionResult Criar(ContatoModel contato) {
 
-            if (ModelState.IsValid) {
+            try {
+                if (ModelState.IsValid) {
 
-                _contatoRepositorio.Adicionar(contato);
+                    _contatoRepositorio.Adicionar(contato);
+                    TempData["MensagemSucesso"] = "Contato cadastrado com sucesso";
+                    return RedirectToAction("Index");
+                }
+
+                return View(contato);
+
+            } catch (System.Exception erro) {
+                TempData["MensagemErro"] = $"Erro! Não foi possivel cadastrar seu contato. Detalhe do erro: {erro.Message} ";
                 return RedirectToAction("Index");
             }
-
-            return View(contato);
         }
 
         [HttpPost]
