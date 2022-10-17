@@ -71,12 +71,24 @@ namespace ControleDeContatos.Controllers
         [HttpPost]
         public IActionResult Alterar(ContatoModel contato) {
 
-           if (ModelState.IsValid) {
-                _contatoRepositorio.Atualizar(contato);
+
+            try {
+
+                if (ModelState.IsValid) {
+                    _contatoRepositorio.Atualizar(contato);
+                    TempData["MensagemSucesso"] = "Contato alterado com sucesso";
+                    return RedirectToAction("Index");
+                }
+
+                return View("Editar", contato);
+
+            }
+            catch (Exception erro) {
+                TempData["MensagemSucesso"] = $"Erro! Não foi possivel atualizar seu contato. Detalhe do erro: {erro.Message} ";
                 return RedirectToAction("Index");
+
             }
 
-            return View("Editar", contato);
         }
     }
 }
