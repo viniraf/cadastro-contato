@@ -16,8 +16,7 @@
 <br />
 
 @if (TempData["MensagemSucesso"] != null) {
-    <div class="alert alert-success" role="alert">
-        <button type="button" class="btn btn-danger btn-sm close-alert" aria-label="Close">X</button>
+    <div class="alert alert-success text-center" role="alert">
         @TempData["MensagemSucesso"]
     </div>
 }
@@ -25,7 +24,6 @@
 
 @if (TempData["MensagemErro"] != null) {
     <div class="alert alert-danger" role="alert">
-        <button type="button" class="btn btn-danger btn-sm close-alert" aria-label="Close">X</button>
         @TempData["MensagemErro"]
     </div>
 }
