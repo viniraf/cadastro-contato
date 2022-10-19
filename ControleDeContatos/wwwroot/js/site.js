@@ -3,9 +3,20 @@
 
 // Write your JavaScript code.
 
-// Implementação para funcionar datatable traduzido e configurado
+// Implementação de datatable configurado
 $(document).ready(function () {
-    $('#table-contatos').DataTable({
+    getDatatable('#table-contatos');
+    getDatatable('#table-usuarios');
+})
+
+// Implementação para mensagem após ações crud sairem da tela automaticamente
+$('.alert').fadeIn().delay(1000).fadeOut(function () {
+    $(this).remove()
+});
+
+// Implementação de uma função para configuração de datatable
+function getDatatable(id) {
+    $(id).DataTable({
         "ordering": true,
         "paging": true,
         "searching": true,
@@ -33,9 +44,5 @@ $(document).ready(function () {
             }
         }
     });
-});
+}
 
-// Implementação para mensagem após ações crud sairem da tela automaticamente
-$('.alert').fadeIn().delay(1000).fadeOut(function () {
-    $(this).remove()
-});
