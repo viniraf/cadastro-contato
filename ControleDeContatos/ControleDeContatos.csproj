@@ -19,6 +19,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Content Update="Views\Shared\_LayoutDeslogado.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
     <Content Update="Views\Usuario\ApagarConfirmacao.cshtml">
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>

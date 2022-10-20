@@ -30,5 +30,11 @@ namespace ControleDeContatos.Models {
 
         // "?" Significa que esse campo pode ser nulo
         public DateTime? DataAtualizacao { get; set; }
+
+
+        public bool SenhaValida(string senha) {
+
+            return Senha == senha;
+        }
     }
 }
