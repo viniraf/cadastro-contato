@@ -37,6 +37,7 @@
             <th scope="col">Nome</th>
             <th scope="col">Login</th>
             <th scope="col">Email</th>
+            <th scope="col">Perfil</th>
             <th scope="col">Data de Cadastro</th>
             <th scope="col"></th>
         </tr>
@@ -44,21 +45,22 @@
     <tbody>
         @if (Model != null && Model.Any()) {
             foreach (var usuario in Model) {
-                <tr>
-                    <th scope="row">@usuario.Id</th>
-                    <td>@usuario.Nome</td>
-                    <td>@usuario.Login</td>
-                    <td>@usuario.Email</td>
-                    <td>@usuario.DataCadastro</td>
-                    <td>
-                        <div class="btn-group" role="group">
-                            <a role="button" asp-action="Editar" asp-controller="Usuario" asp-route-id="@usuario.Id" class="btn btn-warning">Editar</a>
-                            <a role="button" asp-action="ApagarConfirmacao" asp-controller="Usuario" asp-route-id="@usuario.Id" class="btn btn-danger">Apagar</a>
+        <tr>
+            <th scope="row">@usuario.Id</th>
+            <td>@usuario.Nome</td>
+            <td>@usuario.Login</td>
+            <td>@usuario.Email</td>
+            <td>@(usuario.Perfil == ControleDeContatos.Enums.PerfilEnum.Admin ? "Administador" : "Padrão")</td>
+            <td>@usuario.DataCadastro</td>
+            <td>
+                <div class="btn-group" role="group">
+                    <a role="button" asp-action="Editar" asp-controller="Usuario" asp-route-id="@usuario.Id" class="btn btn-warning">Editar</a>
+                    <a role="button" asp-action="ApagarConfirmacao" asp-controller="Usuario" asp-route-id="@usuario.Id" class="btn btn-danger">Apagar</a>
 
-                        </div>
-                    </td>
+                </div>
+            </td>
 
-                </tr>
+        </tr>
             }
 
         }
