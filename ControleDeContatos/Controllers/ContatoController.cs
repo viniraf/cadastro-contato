@@ -91,7 +91,7 @@ namespace ControleDeContatos.Controllers
             try {
 
                 if (ModelState.IsValid) {
-                    _contatoRepositorio.Atualizar(contato);
+                    contato = _contatoRepositorio.Atualizar(contato);
                     TempData["MensagemSucesso"] = "Contato alterado com sucesso";
                     return RedirectToAction("Index");
                 }
