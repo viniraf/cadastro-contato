@@ -44,12 +44,12 @@
 
     <div class="form-group">
         <label for="senha" class="form-label">Senha</label>
-        <input type="text" asp-for="Senha" class="form-control" placeholder="Digite a senha do usuário">
+        <input type="password" asp-for="Senha" class="form-control" placeholder="Digite a senha do usuário">
         @Html.ValidationMessageFor(x => x.Senha)
     </div>
 
     <button type="submit" class="btn btn-primary">Adicionar</button>
-    <a class="btn btn-success" asp-controller="Contato" asp-action="Index" role="button">Voltar</a>
+    <a class="btn btn-success" asp-controller="Usuario" asp-action="Index" role="button">Voltar</a>
 </form>
 
 
