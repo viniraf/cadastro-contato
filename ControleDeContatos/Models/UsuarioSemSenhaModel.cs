@@ -6,7 +6,7 @@ using System.Linq;
 using System.Threading.Tasks;
 
 namespace ControleDeContatos.Models {
-    public class UsuarioModel {
+    public class UsuarioSemSenhaModel {
 
         public int Id { get; set; }
 
@@ -16,19 +16,11 @@ namespace ControleDeContatos.Models {
         [Required(ErrorMessage = "Digite o Login do usuário")]
         public string Login { get; set; }
 
-        [Required(ErrorMessage = "Digite o senha do usuário")]
-        public string Senha { get; set; }
-
         [Required(ErrorMessage = "Digite o E-mail do usuário")]
         [EmailAddress(ErrorMessage = "O e-mail informado não é válido")]
         public string Email { get; set; }
 
         [Required(ErrorMessage = "Informe o perfil do usuário")]
         public PerfilEnum? Perfil { get; set; }
-
-        public DateTime DataCadastro { get; set; }
-
-        // "?" Significa que esse campo pode ser nulo
-        public DateTime? DataAtualizacao { get; set; }
     }
 }

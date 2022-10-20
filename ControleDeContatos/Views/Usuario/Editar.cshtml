@@ -3,17 +3,19 @@
 @model UsuarioModel
 
 @{
-    ViewData["Title"] = "Criar usuário";
+    ViewData["Title"] = "Editar usuário";
 }
 
 
 
 
 <div class="text-center">
-    <h1>Cadastrar usuário</h1>
+    <h1>Editar usuário</h1>
 </div>
 
-<form asp-controller="Usuario" asp-action="Criar" method="post">
+<form asp-controller="Usuario" asp-action="Editar" method="post">
+
+    <input  type="hidden" asp-for="Id"/>
 
     <div class="form-group">
         <label for="nome">Nome</label>
@@ -34,22 +36,16 @@
     </div>
 
     <div class="form-group">
-        <label for="celular">Perfil</label>
-        <select asp-for="Login" class="form-control">
-            <option value="0">Selecione</option>
+        <label for="perfil">Perfil</label>
+        <select asp-for="Perfil" class="form-control">
+            <option value="">Selecione</option>
             <option value="@PerfilEnum.Admin">Administrador</option>
             <option value="@PerfilEnum.Padrao">Padrão</option>
         </select>
         @Html.ValidationMessageFor(x => x.Perfil)
     </div>
 
-    <div class="form-group">
-        <label for="senha" class="form-label">Senha</label>
-        <input type="password" asp-for="Senha" class="form-control" placeholder="Digite a senha do usuário">
-        @Html.ValidationMessageFor(x => x.Senha)
-    </div>
-
-    <button type="submit" class="btn btn-primary">Adicionar</button>
+    <button type="submit" class="btn btn-primary">Alterar</button>
     <a class="btn btn-success" asp-controller="Usuario" asp-action="Index" role="button">Voltar</a>
 </form>
 
