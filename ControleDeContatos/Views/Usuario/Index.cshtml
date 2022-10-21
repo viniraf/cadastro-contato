@@ -53,11 +53,8 @@
             <td>@(usuario.Perfil == ControleDeContatos.Enums.PerfilEnum.Admin ? "Administador" : "Padrão")</td>
             <td>@usuario.DataCadastro</td>
             <td>
-                <div class="btn-group" role="group">
-                    <a role="button" asp-action="Editar" asp-controller="Usuario" asp-route-id="@usuario.Id" class="btn btn-warning">Editar</a>
-                    <a role="button" asp-action="ApagarConfirmacao" asp-controller="Usuario" asp-route-id="@usuario.Id" class="btn btn-danger">Apagar</a>
-
-                </div>
+                <a role="button" asp-action="Editar" asp-controller="Usuario" asp-route-id="@usuario.Id" class="btn btn-warning">Editar</a>
+                <a role="button" asp-action="ApagarConfirmacao" asp-controller="Usuario" asp-route-id="@usuario.Id" class="btn btn-danger">Apagar</a>
             </td>
 
         </tr>
